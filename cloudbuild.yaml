@@ -1,5 +1,4 @@
 steps:
-  - name: 'Test Step'
-    image: 'ubuntu'
-    entrypoint: 'echo'
-    args: ['Hello from Cloud Build!']
+  - name: 'Upload index.html to GCS'
+    entrypoint: 'gsutil'
+    args: ['cp', 'index.html', 'gs://themoosefamily/index.html']
