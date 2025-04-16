@@ -2,5 +2,6 @@ options:
   logging: 'CLOUD_LOGGING_ONLY'
 steps:
   - name: 'Upload index.html to GCS'
+    image: 'google/cloud-sdk'
     entrypoint: 'gsutil'
     args: ['cp', 'index.html', 'gs://themoosefamily/index.html']
