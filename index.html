@@ -62,7 +62,7 @@
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    return response.text(); // Or response.text() depending on your function's response
+                    return response.text(); // Or response.json() depending on your function's response
                 })
                 .then(data => {
                     // console.log('Data received:', data);
