@@ -42,7 +42,7 @@
 <body>
     <div class="container">
         <h1>Welcome to The Moose Family Website!</h1>
-        <p>This is a simple, generic HTML file that can be used as a starting point for my application.</p>
+        <p>This is a simple HTML file that I have used as a starting point for my application.</p>
         <p>This is my fourth test for an integrated CI/CD using cloud build triggers connecting to my github repo. If this works, this should show up on my website.</p>
         <p>Edit: it did work.</p>
         <a href="#" class="button">Learn More</a>
@@ -50,27 +50,24 @@
     </div>
     <br>
     
-    <div id="responseContainer">Loading visitor counter...</div>
+    <div id="responseContainer">Loading visitor counter...</div> 
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const responseContainer = document.getElementById('responseContainer');
-            const cloudRunUrl = 'https://us-central1-shaped-shuttle-275715.cloudfunctions.net/addmessage'; // Replace with your actual URL
+            const cloudRunUrl = 'https://us-central1-shaped-shuttle-275715.cloudfunctions.net/addmessage'; // Cloud Function URL
 
             fetch(cloudRunUrl)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    return response.text(); // Or response.json() depending on your function's response
+                    return response.text(); // Previously response.json() to see the output as an object
                 })
                 .then(data => {
-                    // console.log('Data received:', data);
-                    // responseContainer.textContent = JSON.stringify(data, null, 2); // Display the data
-                    responseContainer.textContent = `Visitor Counter: ${data}`;
+                    responseContainer.textContent = `Visitor Counter: ${data}`; //Display the data
                 })
                 .catch(error => {
-                    // console.error('Error fetching data:', error);
                     responseContainer.textContent = `Error: ${error.message}`;
                 });
         });
